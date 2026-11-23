@@ -1,4 +1,6 @@
 [project]
+name = "ai-quiz-studio"
+version = "0.1.0"
 dependencies = [
   "Flask>=3.0.0",
   "huggingface_hub>=0.24.0",
