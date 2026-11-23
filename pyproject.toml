@@ -1,1 +1,10 @@
+[project]
+dependencies = [
+  "Flask>=3.0.0",
+  "huggingface_hub>=0.24.0",
+  "pydantic>=2.5",
+  "pypdf>=4.0",
+  "fpdf2>=2.7",
+]
+
 [tool.vercel]
