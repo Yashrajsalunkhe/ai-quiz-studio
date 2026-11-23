@@ -1,0 +1,5 @@
+# Local Gradio UI and optional model fallback. Vercel installs requirements.txt only.
+-r requirements.txt
+gradio>=4.44.0
+transformers>=4.45
+torch>=2.2

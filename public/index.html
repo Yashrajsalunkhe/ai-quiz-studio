@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Generate practice quizzes from a topic, notes, or PDF.">
+    <title>AI Quiz Studio</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">✦ AI-powered study companion</p>
+        <h1>AI Quiz Studio <span>🍑</span></h1>
+        <p>Turn a topic, study notes, or a PDF into a polished practice quiz in seconds.</p>
+      </header>
+
+      <section class="panel" aria-labelledby="builder-heading">
+        <div class="section-heading">
+          <div><p class="eyebrow">Quiz builder</p><h2 id="builder-heading">Create your quiz</h2></div>
+          <span class="secure-note">Your files are processed only for this request.</span>
+        </div>
+
+        <form id="quiz-form">
+          <fieldset>
+            <legend>1. Choose your source</legend>
+            <div class="source-options" role="radiogroup" aria-label="Input source">
+              <label><input type="radio" name="source" value="Topic" checked> <span>💡 Topic</span></label>
+              <label><input type="radio" name="source" value="Paste Text"> <span>📝 Paste text</span></label>
+              <label><input type="radio" name="source" value="Upload PDF"> <span>📄 Upload PDF</span></label>
+            </div>
+            <label class="field">Topic or focus keyword
+              <input id="topic" name="topic" placeholder="e.g. Cellular respiration, Indian history">
+              <small>Required for a topic quiz; optional focus for notes and PDFs.</small>
+            </label>
+            <label id="text-field" class="field hidden">Paste study text or notes
+              <textarea id="text" name="text" rows="8" placeholder="Paste at least 30 words of study material…"></textarea>
+            </label>
+            <label id="pdf-field" class="field hidden">Upload a PDF <span class="muted">(up to 3 MB)</span>
+              <input id="pdf" name="pdf" type="file" accept="application/pdf,.pdf">
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. Configure your quiz</legend>
+            <div class="grid">
+              <label class="field">Questions
+                <select id="question-count"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
+              </label>
+              <label class="field">Difficulty
+                <select id="difficulty"><option>Easy</option><option selected>Medium</option><option>Hard</option></select>
+              </label>
+              <label class="field">Format
+                <select id="question-type"><option>MCQ</option><option>True/False</option><option>Fill-in-the-blank</option></select>
+              </label>
+              <label class="field">Language
+                <select id="language"><option>English</option><option>Hindi</option></select>
+              </label>
+              <label class="field full">Bloom's taxonomy
+                <select id="bloom"><option>Any</option><option>Remember</option><option>Understand</option><option>Apply</option><option>Analyze</option><option>Evaluate</option></select>
+              </label>
+            </div>
+          </fieldset>
+          <button id="generate" class="primary" type="submit">Generate quiz <span>→</span></button>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="results" class="hidden" aria-live="polite">
+        <div class="results-heading"><div><p class="eyebrow">Your questions</p><h2>Quiz preview</h2></div><div id="downloads" class="downloads"></div></div>
+        <div id="questions"></div>
+        <section class="panel practice" aria-labelledby="practice-heading">
+          <div><p class="eyebrow">Practice mode</p><h2 id="practice-heading">Test yourself</h2></div>
+          <button id="start-practice" class="secondary" type="button">Start quiz</button>
+          <div id="practice-area" class="hidden"></div>
+        </section>
+      </section>
+    </main>
+    <footer>AI Quiz Studio · Serverless edition</footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
